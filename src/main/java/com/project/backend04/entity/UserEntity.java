@@ -7,7 +7,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,26 +14,20 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="tasks")
+@Table(name="users")
 @Builder
-public class TaskEntity{
+public class UserEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
-    private String description;
+    private String email;
+    private String password;
 
-    @OneToMany(mappedBy = "task",
+    @OneToMany(mappedBy = "user",
                cascade = CascadeType.ALL,
                fetch = FetchType.LAZY,
                orphanRemoval = true)
     @JsonIgnore
-    List<TaskDetailEntity> tasks_details=new ArrayList<>();
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    @JsonIgnore
-    private UserEntity user;
-
-
+    private List<TaskEntity> tasks=new ArrayList<>();
 }

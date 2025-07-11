@@ -27,6 +27,7 @@ public class TaskController {
                     .name(task.getName())
                     .description(task.getDescription())
                     .tasks_details(task.getTasks_details())
+                    .user(task.getUser())
                     .build();
             return  ResponseEntity.ok(taskDTO);
         }
@@ -42,6 +43,7 @@ public class TaskController {
                         .name(tasks.getName())
                         .description(tasks.getDescription())
                         .tasks_details(tasks.getTasks_details())
+                        .user(tasks.getUser())
                         .build())
                 .toList();
                 return ResponseEntity.ok(taskDTOList);
@@ -52,7 +54,9 @@ public class TaskController {
         this.service.save(TaskEntity.builder()
                 .id(taskDTO.getId())
                 .name(taskDTO.getName())
-                .description(taskDTO.getDescription()).build());
+                .description(taskDTO.getDescription())
+                .user(taskDTO.getUser())
+                .build());
         return ResponseEntity.created(new URI("/api/v1/tasks")).build();
     }
 
@@ -63,6 +67,7 @@ public class TaskController {
             TaskEntity task = taskEntity.get();
             task.setName(taskDTO.getName());
             task.setDescription(taskDTO.getDescription());
+            task.setUser(taskDTO.getUser());
             this.service.save(task);
             return ResponseEntity.ok(task);
         }

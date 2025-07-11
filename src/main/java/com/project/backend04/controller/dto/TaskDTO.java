@@ -1,5 +1,6 @@
 package com.project.backend04.controller.dto;
 import com.project.backend04.entity.TaskDetailEntity;
+import com.project.backend04.entity.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,4 +18,5 @@ public class TaskDTO {
     private String name;
     private String description;
     List<TaskDetailEntity> tasks_details;
+    private UserEntity user;
 }
