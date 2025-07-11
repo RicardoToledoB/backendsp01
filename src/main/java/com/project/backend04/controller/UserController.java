@@ -2,7 +2,6 @@ package com.project.backend04.controller;
 
 import com.project.backend04.controller.dto.UserDTO;
 import com.project.backend04.entity.UserEntity;
-import com.project.backend04.service.ITaskService;
 import com.project.backend04.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
