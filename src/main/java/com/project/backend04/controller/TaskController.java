@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/tasks")
+@CrossOrigin("*")
 public class TaskController {
 
     @Autowired

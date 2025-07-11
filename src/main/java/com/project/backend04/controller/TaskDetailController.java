@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/tasks_details")
+@CrossOrigin("*")
 public class TaskDetailController {
 
     @Autowired
